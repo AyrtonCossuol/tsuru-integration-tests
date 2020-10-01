@@ -80,7 +80,10 @@ class Cmd(object):
 
 def get_token():
     with open(os.path.expanduser('~/.tsuru_token'), 'r') as f:
-        return f.read()
+        try:
+            return f.read()
+        except: 
+            return 
 
 
 def retry(func, *args, **kwargs):
